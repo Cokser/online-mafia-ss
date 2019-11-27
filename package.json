@@ -4,8 +4,8 @@
   "description": "node server",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node ./main.js",
-    "dev": "NODE_ENV=development nodemon ./main.js",
+    "start": "babel-node index.js --NODE_ENV=production ",
+    "dev": "nodemon --exec babel-node index.js NODE_ENV=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,6 +37,10 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "eslint": "^6.7.1",
     "mocha": "^6.2.2"
   }

@@ -1,12 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import * as userController from "./src/controllers/userController";
-
-const path = require('path');
-
-const rootDir = require('./utils/path');
-
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const userController = require('./src/controllers/user');
 
 const app = express();
 
@@ -15,10 +10,11 @@ app.use(cors({
 }));
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(rootDir, 'public')));
 
-app.use("/users/create", userController.addUser);
-app.use("/users", userController.getUsers);
+app.post("/users/create", userController.addUser);
+app.delete("/users/delete", userController.deleteUser);
+app.get("/users/:id", userController.getUserById);
+app.get("/users", userController.getUsers);
 
 const port = 3200;
 
