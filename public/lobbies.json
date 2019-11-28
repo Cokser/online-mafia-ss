@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "id": "tt0110357",
+      "url": "lobby_123",
+      "utc_started": 1574933155750,
+      "title": "Demo Lobby 1",
+      "private": false,
+      "streaming_mode": false,
+      "description": "animation"
+    },
+    {
+      "id": "tt0068646",
+      "url": "lobby_124",
+      "utc_started": 1574931155750,
+      "title": "Demo Lobby 2",
+      "private": false,
+      "streaming_mode": false,
+      "description": "crime"
+    },
+    {
+      "id": "tt0110359",
+      "url": "lobby_125",
+      "utc_started": 1574932155750,
+      "title": "Demo Lobby 3",
+      "private": false,
+      "streaming_mode": false,
+      "description": "English"
+    },
+    {
+      "title": "Demo Lobby 4",
+      "private": false,
+      "description": "new lobby",
+      "streaming_mode": false,
+      "id": "57577416-e9e3-4634-b795-09a969a2136b",
+      "utc_started": 1574954579062,
+      "url": "lobby_4b2bb50"
+    },
+    {
+      "title": "key",
+      "private": false,
+      "description": "value",
+      "streaming_mode": true,
+      "id": "0a966ba3-8eea-43df-a928-bd58a15e2e97",
+      "utc_started": 1574955442238,
+      "url": "lobby_4a1f623"
+    }
+  ]
+}

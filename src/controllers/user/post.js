@@ -13,7 +13,7 @@ export const addUser = (req, res) => {
         usersData = JSON.parse(rawdata);
         usersData.data.push(newUser);
         let newData = JSON.stringify(usersData);
-        fs.writeFileSync('./public/users.json', newData);
+        fs.writeFileSync('./public/lobbies.json', newData);
         res.end();
     }
     catch (e) {

@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const userController = require('./src/controllers/user');
+import lobbyRouter from './src/routes/lobby';
+import usersRouter from './src/routes/users';
 
 const app = express();
 
@@ -9,12 +11,11 @@ app.use(cors({
     exposedHeaders: ['Link']
 }));
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/users/create", userController.addUser);
-app.delete("/users/delete", userController.deleteUser);
-app.get("/users/:id", userController.getUserById);
-app.get("/users", userController.getUsers);
+app.use('/lobby', lobbyRouter);
+app.use('/users', usersRouter);
 
 const port = 3200;
 

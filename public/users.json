@@ -1,14 +1,34 @@
 {
   "data": [
     {
-      "id": "tt0110357",
-      "name": "The Lion King",
-      "department": "animation"
+      "id": "1234",
+      "name": "bot 123",
+      "username": "bot_123",
+      "registered_at": 1574933155750,
+      "email": "bot_123@testicle.com",
+      "user_role": "user",
+      "status": "active",
+      "about": "animation"
     },
     {
-      "id": "tt0068646",
-      "name": "The Godfather 2",
-      "department": "crime"
+      "id": "1235",
+      "name": "bot 124",
+      "username": "bot_124",
+      "registered_at": 1574931155750,
+      "email": "bot_124@testicle.com",
+      "user_role": "moderator",
+      "status":  "active",
+      "about": "crime"
+    },
+    {
+      "id": "1236",
+      "name": "bot 125",
+      "username": "bot_125",
+      "registered_at": 1574932155750,
+      "email": "bot_125@testicle.com",
+      "user_role": "admin",
+      "status":  "active",
+      "about": "English"
     }
   ]
 }
