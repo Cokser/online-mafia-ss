@@ -3,12 +3,16 @@ const fs = require('fs');
 export const deleteUser = (req, res) => {
     let usersData;
     try {
-        let rawdata = fs.readFileSync('./public/lobbies.json');
-        usersData = JSON.parse(rawdata);
-        usersData.data.pop();
-        let newData = JSON.stringify(usersData);
-        fs.writeFileSync('./public/lobbies.json', newData);
-        res.end();
+        fs.readFile('./public/lobbies.json', (err, data) => {
+            if (err) throw err;
+            usersData = JSON.parse(data);
+            usersData.data.pop();
+            let newData = JSON.stringify(usersData);
+            fs.writeFile('./public/lobbies.json', newData, (err) => {
+                if (err) throw err;
+                res.end();
+            });
+        });
     }
     catch (e) {
         console.log(e.message);

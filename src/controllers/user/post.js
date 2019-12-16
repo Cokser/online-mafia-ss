@@ -9,11 +9,11 @@ export const addUser = (req, res) => {
     let usersData;
 
     try {
-        let rawdata = fs.readFileSync('./public/users.json');
+        let rawdata = fs.readFile('./public/users.json');
         usersData = JSON.parse(rawdata);
         usersData.data.push(newUser);
         let newData = JSON.stringify(usersData);
-        fs.writeFileSync('./public/lobbies.json', newData);
+        fs.writeFile('./public/lobbies.json', newData);
         res.end();
     }
     catch (e) {

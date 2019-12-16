@@ -1,26 +1,18 @@
-const fs = require('fs');
+import {get} from "../../api/get";
 
-let lobbiesData;
 
 export const getLobbies = (req, res) => {
-    let rawdata = fs.readFileSync('./public/lobbies.json');
-    lobbiesData = JSON.parse(rawdata);
-    res.send(lobbiesData);
+    get('./public/lobbies.json', (data) => res.send(data));
 };
 
 export const getLobbyById = (req, res) => {
-    let rawdata = fs.readFileSync('./public/lobbies.json');
-    lobbiesData = JSON.parse(rawdata);
-    const itemUrl = req.params.url;
-    try {
-        const item = lobbiesData.data.find(_item => _item.url === itemUrl);
+    get('./public/lobbies.json',  (lobbiesData) => {
+        const itemId = req.params.id;
+        const item = lobbiesData.data.find(_item => _item.url === itemId);
         if (item) {
             res.send(item);
         } else {
             res.status(404).send({ message: `lobby: "${itemUrl}" doesn't exist`})
         }
-    }
-    catch (e) {
-        console.log('ERROR: ', e.message);
-    }
+    });
 };
