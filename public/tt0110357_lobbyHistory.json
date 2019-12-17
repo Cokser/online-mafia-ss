@@ -1,0 +1,84 @@
+{
+  "lobby_id": "tt0110357",
+  "creator_id": "1231231",
+  "users": [
+    {
+      "id": "21103573",
+      "utc_entered": 1574933155750,
+      "utc_leaved": 1574933176750,
+      "banned": false
+    },
+    {
+      "id": "20686463",
+      "utc_started": 1574931155750,
+      "utc_leaved": 1574931175750,
+      "banned": false
+    },
+    {
+      "id": "21103593",
+      "utc_started": 1574932155750,
+      "utc_leaved": 1574932175750,
+      "banned": false
+    }
+  ],
+  "players": [
+    {
+      "id": "21103573",
+      "utc_entered": 1574933155750,
+      "utc_leaved": 1574933176750,
+      "banned": false,
+      "role": "mafia"
+    },
+    {
+      "id": "20686463",
+      "utc_started": 1574931155750,
+      "utc_leaved": 1574931175750,
+      "banned": false,
+      "role": "sheriff"
+    },
+    {
+      "id": "21103593",
+      "utc_started": 1574932155750,
+      "utc_leaved": 1574932175750,
+      "banned": false,
+      "role": "lead"
+    },
+    {
+      "id": "21103193",
+      "utc_started": 1574932155750,
+      "utc_leaved": 1574932175750,
+      "banned": false,
+      "role": "peace"
+    }
+  ],
+  "rounds": [
+    {
+      "order": 1,
+      "utc_started": 1574933155950,
+      "utc_ended": 1574933176750,
+      "banned": false,
+      "role": "mafia"
+    },
+    {
+      "order": 2,
+      "utc_started": 1574933155950,
+      "utc_ended": 1574931175750,
+      "banned": false,
+      "role": "sheriff"
+    },
+    {
+      "order": 3,
+      "utc_started": 1574933155950,
+      "utc_ended": 1574932175750,
+      "banned": false,
+      "role": "lead"
+    },
+    {
+      "order": 4,
+      "utc_started": 1574933155950,
+      "utc_ended": 1574932175750,
+      "banned": false,
+      "role": "peace"
+    }
+  ]
+}

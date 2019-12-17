@@ -1,24 +1,19 @@
-const fs = require('fs');
-
-let usersData;
+import {get} from "../../api/get";
 
 export const getUsers = (req, res) => {
-    let rawdata = fs.readFileSync('./public/users.json');
-    usersData = JSON.parse(rawdata);
-    res.send(usersData);
+    get('./public/users.json', (data) => res.send(data));
 };
 
 export const getUserById = (req, res) => {
     const itemId = req.params.id;
-    try {
-        const item = usersData.data.find(_item => _item.id === itemId);
+    get('./public/users.json',  (usersData) => {
+        const item = usersData.data
+            .find(_item => _item.id === itemId);
+
         if (item) {
-            res.json(item);
+            res.send(item);
         } else {
-            res.json({ message: `item ${itemId} doesn't exist`})
+            res.status(404).send({ message: `user: "${itemId}" doesn't exist`})
         }
-    }
-    catch (e) {
-        console.log(e.message);
-    }
+    });
 };
