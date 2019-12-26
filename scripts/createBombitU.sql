@@ -1,0 +1,15 @@
+﻿-- Role: bombit
+-- DROP ROLE bombit;
+
+CREATE ROLE bombit WITH
+    LOGIN
+    NOSUPERUSER
+    INHERIT
+    CREATEDB
+    CREATEROLE
+    REPLICATION
+    ENCRYPTED PASSWORD 'md5d6550b2b59b14f94838d58a078556d46';
+
+GRANT postgres TO bombit;
+
+COMMENT ON ROLE bombit IS 'custom user';

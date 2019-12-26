@@ -3,8 +3,20 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require('cors');
+const {Client} = require('pg');
 require('dotenv').config();
 
+const client = new Client({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+});
+
+client.connect()
+    .then(() => console.log('connected successfully!'))
+    .finally(() => client.end());
 
 const userController = require('./src/controllers/user');
 import lobbyRouter from './src/routes/lobby';

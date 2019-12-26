@@ -19,8 +19,8 @@ node_modules
 npm-debug.log
 npm-debug.log.*
 logs
-.env
-.env.*
+#.env
+#.env.*
 uploads
 dump.rdb
 common/pdfProposals
