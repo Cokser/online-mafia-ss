@@ -1,11 +1,16 @@
 const fs = require('fs');
 let getData;
 export const get = (url, cb) => {
-    fs.readFile(url, (err, data) => {
-        if (err) throw err;
-        getData = JSON.parse(data);
-        cb(getData);
-    });
+    try {
+        fs.readFile(url, (err, data) => {
+            if (err) throw err;
+            getData = JSON.parse(data);
+            cb(getData);
+        });
+    }
+    catch (e) {
+        console.log(e);
+    }
 };
 //
 // export const getDataById = (url, id, cb) => {

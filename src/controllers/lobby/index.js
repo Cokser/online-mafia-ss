@@ -1,8 +1,8 @@
 import { addLobby } from "./post";
-import { getLobbies, getLobbyById } from "./get";
+import {getLobbies, getLobbyById, getNewLobbies} from "./get";
 
 module.exports = {
     addLobby,
-    getLobbies,
+    getLobbies: getNewLobbies,
     getLobbyById,
 };
