@@ -1,12 +1,14 @@
 const express = require('express');
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require('cors');
 require('dotenv').config();
 
-
 const userController = require('./src/controllers/user');
+
+import {initServer} from "./src/init";
 import lobbyRouter from './src/routes/lobby';
 import usersRouter from './src/routes/users';
 
@@ -25,9 +27,10 @@ app.use(session({
     resave: false
 }));
 
+
 app.use('/lobby', lobbyRouter);
 app.use('/users', usersRouter);
 
 const port = 3200;
 
-app.listen(process.env.APP_PORT);
+app.listen(process.env.APP_PORT, initServer);
