@@ -3,6 +3,6 @@ import {getLobbies, getLobbyById, getNewLobbies} from "./get";
 
 module.exports = {
     addLobby,
-    getLobbies: getNewLobbies,
+    getLobbies: getLobbies,
     getLobbyById,
 };

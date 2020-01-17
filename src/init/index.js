@@ -2,5 +2,5 @@
 
 export const initServer = () => {
     knexClient();
-    console.log('Connected Successfully!');
+    console.log('Started Successfully!');
 };

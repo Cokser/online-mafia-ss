@@ -1,6 +1,8 @@
 const {Client} = require('pg');
 import {get} from "../../api/get";
 
+const Lobby = require('../../models/lobby');
+
 export const getNewLobbies = async (req, res) => {
     const client = new Client({
         host: process.env.DB_HOST,
@@ -29,8 +31,13 @@ export const getNewLobbies = async (req, res) => {
 
 
 
-export const getLobbies = (req, res) => {
-    get('./public/lobbies.json', (data) => res.send(data));
+export const getLobbies = async (req, res) => {
+    try {
+        const lobbies = await Lobby.query();
+        return res.json(lobbies);
+    } catch(e) {
+        console.log('ERR:', e);
+    };
 };
 
 export const getLobbyById = (req, res) => {

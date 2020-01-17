@@ -1,15 +1,19 @@
-const fs = require('fs');
-let getData;
+import { knexClient } from "../init/initDB";
+
 export const get = (url, cb) => {
     try {
-        fs.readFile(url, (err, data) => {
-            if (err) throw err;
-            getData = JSON.parse(data);
-            cb(getData);
-        });
+        console.log('lobbies???');
+        knexClient
+            .select('*')
+            .from('lobbies')
+            .then((data) => {
+                console.log(data);
+                cb(data)
+            })
+            .catch(e => console.log('knexClient catch ', e));
     }
     catch (e) {
-        console.log(e);
+        console.log('catch ', e);
     }
 };
 //
