@@ -10,8 +10,7 @@ require('dotenv').config();
 const userController = require('./src/controllers/user');
 
 import {initServer} from "./src/init";
-import lobbyRouter from './src/routes/lobby';
-import usersRouter from './src/routes/users';
+import rootRouter from "./src/routes";
 
 const app = express();
 
@@ -29,8 +28,7 @@ app.use(session({
 app.use(passport.initialize({}));
 app.use(passport.session({}));
 
-app.use('/lobby', lobbyRouter);
-app.use('/users', usersRouter);
+app.use('/', rootRouter);
 
 const port = 3200;
 
