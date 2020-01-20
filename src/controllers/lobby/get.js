@@ -6,7 +6,7 @@ export const getLobbies = async (req, res) => {
         return res.json(lobbies);
     } catch(e) {
         console.log('ERR:', e);
-    };
+    }
 };
 
 export const getLobbyById = async (req, res) => {

@@ -18,7 +18,7 @@ export const getUserById = async (req, res) => {
             return res.json(userById);
         } else {
             return res.status(404)
-                .send({ message: `user - "${userId}" doesn't exists`})
+                .send({ message: `user - "${userId}" doesn't exists`});
         }
     } catch(e) {
         console.log('ERR:', e);
