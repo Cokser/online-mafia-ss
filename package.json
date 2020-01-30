@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Cokser/online-mafia-ss#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "connect-redis": "^4.0.3",
     "cookie-parser": "^1.4.4",
@@ -37,6 +38,7 @@
     "moment": "^2.24.0",
     "objection": "^2.1.2",
     "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pg": "^7.15.1",
     "redis": "^2.8.0",
     "uuid": "^3.3.3"

@@ -8,7 +8,6 @@ module.exports = () => {
     });
 
     passport.deserializeUser((id, done) => {
-        console.log(id, done, 'wow');
         knexClient('account')
             .where({id}).first()
             .then((user) => { done(null, user); })
