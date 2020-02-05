@@ -1,19 +1,26 @@
-import {get} from "../../api/get";
+const User = require('../../models/user');
 
-export const getUsers = (req, res) => {
-    get('./public/users.json', (data) => res.send(data));
+export const getUsers = async (req, res) => {
+    try {
+        const users = await User.query();
+        return res.json(users);
+    } catch(e) {
+        console.log('ERR:', e);
+    }
 };
 
-export const getUserById = (req, res) => {
-    const itemId = req.params.id;
-    get('./public/users.json',  (usersData) => {
-        const item = usersData.data
-            .find(_item => _item.id === itemId);
-
-        if (item) {
-            res.send(item);
+export const getUserById = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const userById = await User.query()
+            .findById(userId);
+        if (userById) {
+            return res.json(userById);
         } else {
-            res.status(404).send({ message: `user: "${itemId}" doesn't exist`})
+            return res.status(404)
+                .send({ message: `user - "${userId}" doesn't exists`});
         }
-    });
+    } catch(e) {
+        console.log('ERR:', e);
+    }
 };

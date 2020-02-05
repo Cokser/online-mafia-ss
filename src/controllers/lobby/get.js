@@ -1,18 +1,27 @@
-import {get} from "../../api/get";
+const Lobby = require('../../models/lobby');
 
-
-export const getLobbies = (req, res) => {
-    get('./public/lobbies.json', (data) => res.send(data));
+export const getLobbies = async (req, res) => {
+    try {
+        const lobbies = await Lobby.query();
+        return res.json(lobbies);
+    } catch(e) {
+        console.log('ERR:', e);
+    }
 };
 
-export const getLobbyById = (req, res) => {
-    get('./public/lobbies.json',  (lobbiesData) => {
+export const getLobbyById = async (req, res) => {
+    try {
         const itemId = req.params.id;
-        const item = lobbiesData.data.find(_item => _item.url === itemId);
-        if (item) {
-            res.send(item);
+        const lobbyById = await Lobby.query()
+            .select('url')
+            .where('url', itemId);
+        if (lobbyById[0]) {
+            return res.json(lobbyById[0]);
         } else {
-            res.status(404).send({ message: `lobby: "${itemUrl}" doesn't exist`})
+            return res.status(404)
+                .send({ message: `lobby - "${itemId}" doesn't exists`})
         }
-    });
+    } catch(e) {
+        console.log('ERR:', e);
+    }
 };
