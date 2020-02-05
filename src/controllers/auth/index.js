@@ -20,7 +20,19 @@ export const registerAccount = async (req, res, next) => {
     }
 };
 
-export const loginAccount = async (req, res) => {};
+export const loginAccount = async (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) { handleResponse(res, 500, 'error'); }
+        if (!user) { handleResponse(res, 404, 'User not found'); }
+        if (user) {
+            req.logIn(user, (error) => {
+                console.log(res);
+                if (error) handleResponse(res, 500, 'error');
+                handleResponse(res, 200, 'success');
+            });
+        }
+    })(req, res, next);
+};
 
 export const logoutAccount = async (req, res) => {};
 

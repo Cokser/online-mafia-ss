@@ -2,9 +2,8 @@
 import {knexClient} from "./initDB";
 
 module.exports = () => {
-
     passport.serializeUser((user, done) => {
-        done(null, user.id);
+        done(null, user);
     });
 
     passport.deserializeUser((id, done) => {
